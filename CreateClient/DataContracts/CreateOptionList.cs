@@ -17,9 +17,45 @@ namespace CreateClient.DataContracts
         [DataMember(Name="raw")]
         public string[] Raw { get; set; }
 
-        public string Id { get { return Raw[0].Split(new char[1] { '=' }, 3)[0]; } }
-        public string Identifier { get { return Raw[0].Split(new char[1] { '=' }, 3)[1]; } }
-        public string Name { get { return Raw[0].Split(new char[1] { '=' }, 3)[2]; } }
+        public string Id {
+            get
+            {
+                if (Raw != null)
+                {
+                    return Raw[0].Split(new char[1] { '=' }, 3)[0];
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
+        public string Identifier { 
+            get
+            {
+                if (Raw != null)
+                {
+                    return Raw[0].Split(new char[1] { '=' }, 3)[1];
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
+        public string Name { 
+            get
+            {
+                if (Raw != null)
+                {
+                    return Raw[0].Split(new char[1] { '=' }, 3)[2];
+                }
+                else
+                {
+                    return "";
+                }
+            }
+        }
 
         public override string ToString()
         {
